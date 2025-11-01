@@ -58,20 +58,18 @@
 trackball_central_listener: trackball_central_listener {
     compatible = "zmk,input-listener";
     status = "okay";
-    device = <&trackball_central>;
-/*
-    scroller {
-        layers = <2>;
-        /* input-processors:
-           X/Y swap, X invert, map to scroll, scroll X invert, scroll scaler 1/5
-        */
-        input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP
-                            &zip_xy_transform INPUT_TRANSFORM_X_INVERT
-                            &zip_xy_to_scroll_mapper
-                            &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
-                            &zip_scroll_scaler 1 5>;
-    };
-*/
+    device = &trackball_central;
+        scroller {
+            layers = <2>;
+            /* input-processors:
+               X/Y swap, X invert, map to scroll, scroll X invert, scroll scaler 1/5
+            */
+            input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP
+                                &zip_xy_transform INPUT_TRANSFORM_X_INVERT
+                                &zip_xy_to_scroll_mapper
+                                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+                                &zip_scroll_scaler 1 5>;
+        };
 };
 
 /*
