@@ -22,7 +22,7 @@
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&trackball_central>;
-
+/*
         scroller {
             layers = <2>;
             input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,   // X軸とY軸の入れ替え
@@ -32,6 +32,7 @@
                                <&zip_scroll_scaler 1 5>;                     // スクロール量を1/5倍（コメント参照）
         };
     };
+*/
 };
 
 
