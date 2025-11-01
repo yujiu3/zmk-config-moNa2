@@ -59,6 +59,7 @@ trackball_central_listener: trackball_central_listener {
     compatible = "zmk,input-listener";
     status = "okay";
     device = <&trackball_central>;
+/*
     scroller {
         layers = <2>;
         /* input-processors:
@@ -70,6 +71,7 @@ trackball_central_listener: trackball_central_listener {
                             &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
                             &zip_scroll_scaler 1 5>;
     };
+*/
 };
 
 /*
