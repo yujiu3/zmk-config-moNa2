@@ -17,6 +17,20 @@
             ;
 };
 
+trackball_central_listener: trackball_central_listener {
+    compatible = "zmk,input-listener";
+    status = "okay";
+    device = <&trackball_central>;
+
+    scroller {
+        layers = <2>;
+        input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,   // X軸とY軸の入れ替え
+                           <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>, // X軸反転
+                           <&zip_xy_to_scroll_mapper>,                   // スクロールモードに変更
+                           <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>, // スクロールのX軸反転
+                           <&zip_scroll_scaler 1 5>;                     // スクロール量を1/5倍（コメント参照）
+    };
+};
 
 &pinctrl {
     spi0_default: spi0_default {    //通常時(SPI通信中)のピン構成
@@ -56,7 +70,7 @@
     };
 };
 
-
+/*
 // Overrides for the input listener node
 &trackball_central_listener {
     status = "okay";
@@ -72,3 +86,4 @@
     };
 
 };
+*/
